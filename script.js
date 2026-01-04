@@ -1,12 +1,13 @@
 let numberToGuess = Math.round(Math.random() * 100);
 let tries = 0;
-let guessed = 0;
+let guessed = false;
 
 function guessTheNumber() {
 
     if(guessed == 1) {
         tries = 0;
-        guessed = 0;
+        guessed = false;
+        numberToGuess = Math.round(Math.random() * 100);
     }
     
     if(numberToGuess < numberInput.value) {
@@ -21,7 +22,7 @@ function guessTheNumber() {
         headline.innerHTML = "Du hast gewonnen und die Zahl " +numberToGuess+ " erraten!";
         const jsConfetti = new JSConfetti();
         jsConfetti.addConfetti();
-        guessed = 1;
+        guessed = true;
     }
 
     tries++;
